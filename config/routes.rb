@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   resources :dogs
-  get 'sessions/create'
-
   get 'sessions/new'
 
-  get 'sessions/destroy'
+  post '/sessions' => 'sessions#create'
 
-  get 'users/create'
+  delete 'sessions/:id' => 'sessions#destroy'
 
   get 'users/new'
+
+  post 'users' => 'users#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

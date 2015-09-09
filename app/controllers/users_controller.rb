@@ -7,7 +7,7 @@ class UsersController < ApplicationController
    @user = User.new(user_params)
     if @user.save
       set_current_user(@user)
-      redirect '/'
+      redirect_to '/'
     else
       render 'users_create_path'
     end
@@ -16,6 +16,10 @@ class UsersController < ApplicationController
   def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password)
     end
+  def set_current_user(user)
+    session[:user_id] = user.id
+    @current_user = user
+  end
 end
 
 
