@@ -7,7 +7,7 @@ class UsersController < ApplicationController
    @user = User.new(user_params)
     if @user.save
       set_current_user(@user)
-      redirect_to '/'
+      redirect_to 'show'
     else
       render 'users_create_path'
     end

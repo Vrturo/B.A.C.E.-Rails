@@ -1,0 +1,24 @@
+<a href="/">
+      B.A.C.E.
+    </a>
+    <% if session? %>
+      <div>
+        Welcome <%= current_user.first_name %>!
+      </div>
+    <% end %>
+    <div>
+    <% if session[:user_id] == nil %>
+     <div>
+        <img src="https://cdn1.iconfinder.com/data/icons/social-black-buttons/512/uber-256.png">
+     </div>
+     <div>
+        <a id="navUberSignUpLink" href="https://login.uber.com/oauth/authorize?response_type=code&client_id=9z6pxBTjyMZZHtdIOndfCfN1pnl_v8q7">
+        Uber Sign In
+      </a>
+     </div>
+    <%= link_to "Sign In", sessions_new_path %>
+    <%= link_to "Sign up", users_new_path %>
+    <% else %>
+    <%= link_to "Log Out", users_new_path %>
+    <%end %>
+    </div>
